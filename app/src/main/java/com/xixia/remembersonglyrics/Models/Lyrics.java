@@ -5,8 +5,8 @@ package com.xixia.remembersonglyrics.Models;
  */
 
 public class Lyrics {
-    int lyrics_id;
-    String lyrics_body;
+    private int lyrics_id;
+    private String lyrics_body;
 
     Lyrics (){};
 

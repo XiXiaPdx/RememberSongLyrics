@@ -5,9 +5,9 @@ package com.xixia.remembersonglyrics.Models;
  */
 
 public class Track {
-    int track_id;
-    String track_name;
-    String artist_name;
+    private int track_id;
+    private String track_name;
+    private String artist_name;
 
     public String getArtist_name(){
         return artist_name;

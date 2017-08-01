@@ -5,8 +5,9 @@ package com.xixia.remembersonglyrics.Models;
  */
 
 public class EachTrack {
-    public EachTrack() {};
-    Track track;
+    private Track track;
+
+    private EachTrack() {};
     public Track getTrack(){
         return track;
     }

@@ -7,12 +7,15 @@ import java.util.List;
  */
 
 public class MessageBody {
-    Lyrics lyrics;
-    List<EachTrack> track_list;
+    private Lyrics lyrics;
+    private List<EachTrack> track_list;
+
     public MessageBody() {};
+
     public Lyrics getLyrics() {
         return lyrics;
     }
+
     public List<EachTrack> getTrack_list() {
         return track_list;
     }

@@ -5,7 +5,8 @@ package com.xixia.remembersonglyrics.Models;
  */
 
 public class LyricsModel {
-    Message message;
+    private Message message;
+
     public LyricsModel (){};
 
     public Message getMessage() {

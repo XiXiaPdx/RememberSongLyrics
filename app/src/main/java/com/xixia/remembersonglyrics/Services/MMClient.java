@@ -10,7 +10,7 @@ import retrofit2.http.Query;
  * Created by macbook on 7/31/17.
  */
 
-public interface MMEndPoints {
+public interface MMClient {
     @GET("track.lyrics.get")
     Observable<LyricsModel> songLyrics(
             @Query("track_id") String songID,

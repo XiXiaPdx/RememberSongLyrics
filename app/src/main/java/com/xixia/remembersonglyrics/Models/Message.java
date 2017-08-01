@@ -5,8 +5,10 @@ package com.xixia.remembersonglyrics.Models;
  */
 
 public class Message {
-    MessageBody body;
+    private MessageBody body;
+
     public Message() {};
+
     public MessageBody getBody() {
         return body;
     }
