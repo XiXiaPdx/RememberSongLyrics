@@ -5,4 +5,5 @@ package com.xixia.remembersonglyrics.Services;
  */
 
 public class FragmentService {
+    // use this to handle all fragment transactions
 }
