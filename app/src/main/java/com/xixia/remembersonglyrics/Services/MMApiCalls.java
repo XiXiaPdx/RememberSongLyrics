@@ -23,15 +23,15 @@ import static com.xixia.remembersonglyrics.Constants.MUSIC_MATCH_KEY;
 
 public class MMApiCalls {
     private final static String TAG = "MMApiCalls";
-    private AppData appData = AppData.getInstance();
-    private Context mContext;
+    private static AppData appData = AppData.getInstance();
+    private static Context mContext;
 
     public MMApiCalls(Context context){
         mContext = context;
     }
 
 
-    public void getLyricsCall(int songId){
+    public static void getLyricsCall(int songId){
         MMClient client = MMServiceGenerator.createService(MMClient.class);
         Observable<LyricsModel> call = client.songLyrics(Integer.toString(songId), MUSIC_MATCH_KEY)
                 .subscribeOn(Schedulers.newThread())
@@ -65,7 +65,7 @@ public class MMApiCalls {
         call.subscribe(observer);
     }
 
-    public void searchForSong(String searchTerms){
+    public static void searchForSong(String searchTerms){
         MMClient client = MMServiceGenerator.createService(MMClient.class);
         Observable<LyricsModel> call = client.songSearch(searchTerms, MUSIC_MATCH_KEY, "true", "5")
                 .subscribeOn(Schedulers.newThread())
@@ -106,7 +106,7 @@ public class MMApiCalls {
         call.subscribe(observer);
     }
 
-    public void searchError() {
+    public static void searchError() {
         Toast.makeText(mContext, "Sorry, we don't have lyrics for that song.", Toast.LENGTH_SHORT).show();
     }
 
