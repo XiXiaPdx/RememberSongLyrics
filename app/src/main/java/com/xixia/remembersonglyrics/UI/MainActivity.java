@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.xixia.remembersonglyrics.Constants;
 import com.xixia.remembersonglyrics.R;
 import com.xixia.remembersonglyrics.Services.FragmentService;
 import com.xixia.remembersonglyrics.Services.MMApiCalls;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements SplashFragment.On
         super.onResume();
 //        MMApiCalls apiCallService = new MMApiCalls(this);
 //        apiCallService.searchForSong("Million Reasons Lady Gaga");
-        fragmentService.loadFragment(SplashFragment.newInstance());
+        fragmentService.loadFragment(SplashFragment.newInstance(), Constants.BOTTOM_CONTAINER );
     }
 
     @Override
