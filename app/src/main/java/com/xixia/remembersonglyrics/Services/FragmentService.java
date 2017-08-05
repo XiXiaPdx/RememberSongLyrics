@@ -1,30 +1,24 @@
 package com.xixia.remembersonglyrics.Services;
 
+import android.app.Activity;
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.transition.Fade;
-
 import com.xixia.remembersonglyrics.R;
-
 /**
  * Created by macbook on 7/31/17.
  */
 
 public class FragmentService {
     // use this to handle all fragment transactions
+    private static AppCompatActivity activity;
+    private static FragmentManager fm;
 
-    private static final FragmentService ourInstance = new FragmentService();
-
-    private FragmentService () {}
-
-    public static FragmentManager fragmentManager;
-
-    public static FragmentManager getFragmentManager() {
-        return fragmentManager;
-    }
-
-    public static FragmentService getInstance() {
-        return ourInstance;
+    public FragmentService (Activity activity) {
+        this.activity = (AppCompatActivity)activity;
+        fm = ((AppCompatActivity) activity).getSupportFragmentManager();
     }
 
     public static void loadFragment (Fragment fragment) {
@@ -36,6 +30,7 @@ public class FragmentService {
         Fade exitFade = new Fade();
         exitFade.setDuration(200);
         fragment.setExitTransition(exitFade);
+        fm.beginTransaction().replace(R.id.top_frame, fragment).addToBackStack(null).commit();
 
 //        if(fragment.toString().contains("MicFragment")) {
 //            fragmentManager.beginTransaction().replace(R.id.content2_frame, fragment).addToBackStack(null).commit();
