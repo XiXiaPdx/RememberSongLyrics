@@ -1,14 +1,10 @@
 package com.xixia.remembersonglyrics.Services;
 
 import android.app.Activity;
-import android.content.Context;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Fade;
-import com.xixia.remembersonglyrics.R;
-import com.xixia.remembersonglyrics.UI.MainActivity;
 
 /**
  * Created by macbook on 7/31/17.

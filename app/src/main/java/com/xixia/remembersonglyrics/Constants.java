@@ -12,7 +12,7 @@ public class Constants {
     public static final String SONG_NAME = "song name";
     public static final int TOP_CONTAINER = R.id.top_frame;
     public static final int BOTTOM_CONTAINER = R.id.bottom_frame;
-    public static final int INTRO_CONTAINER = 0;
+    public static final int LOGIN_CONTAINER = R.id.login__frame;
 
 
 }
