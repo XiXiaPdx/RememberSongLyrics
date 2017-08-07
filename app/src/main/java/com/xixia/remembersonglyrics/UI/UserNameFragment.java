@@ -13,16 +13,16 @@ import com.xixia.remembersonglyrics.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SplashFragment.OnFragmentInteractionListener} interface
+ * {@link UserNameFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SplashFragment#newInstance} factory method to
+ * Use the {@link UserNameFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SplashFragment extends Fragment {
+public class UserNameFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public SplashFragment() {
+    public UserNameFragment() {
         // Required empty public constructor
     }
 
@@ -30,11 +30,11 @@ public class SplashFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment SplashFragment.
+     * @return A new instance of fragment UserNameFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SplashFragment newInstance() {
-        SplashFragment fragment = new SplashFragment();
+    public static UserNameFragment newInstance() {
+        UserNameFragment fragment = new UserNameFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -49,7 +49,7 @@ public class SplashFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_splash, container, false);
+        return inflater.inflate(R.layout.fragment_username, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
