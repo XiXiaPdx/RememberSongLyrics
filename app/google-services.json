@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1050588127110",
+    "firebase_url": "https://remembersonglyrics.firebaseio.com",
+    "project_id": "remembersonglyrics",
+    "storage_bucket": "remembersonglyrics.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050588127110:android:0c8da15a53fd8f8f",
+        "android_client_info": {
+          "package_name": "com.xixia.remembersonglyrics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050588127110-696m28grffi4lu65ton3u1dl1e1mh55p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xixia.remembersonglyrics",
+            "certificate_hash": "b79857b56f123ac1e8f34d536d6c53803c400b17"
+          }
+        },
+        {
+          "client_id": "1050588127110-jp1aioj2k0csm9l264d9q78eufpq7hg1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv58X2Gpb53P_WYFRi8ksDjlKSATZ86TY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1050588127110-jp1aioj2k0csm9l264d9q78eufpq7hg1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
