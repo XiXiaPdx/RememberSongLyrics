@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.xixia.remembersonglyrics.R;
 
 /**
@@ -21,6 +23,7 @@ import com.xixia.remembersonglyrics.R;
 public class UserNameFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+    private DatabaseReference mReference;
 
     public UserNameFragment() {
         // Required empty public constructor
@@ -62,6 +65,13 @@ public class UserNameFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+
+        mReference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child("secondPushTestNode");
+        mReference.push().setValue("an item");
+
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
