@@ -1,17 +1,22 @@
 package com.xixia.remembersonglyrics.UI;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.xixia.remembersonglyrics.R;
 import com.xixia.remembersonglyrics.Services.FirebaseService;
+
+import butterknife.BindView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,10 +26,11 @@ import com.xixia.remembersonglyrics.Services.FirebaseService;
  * Use the {@link UserNameFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UserNameFragment extends Fragment {
+public class UserNameFragment extends Fragment implements View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
-//    private DatabaseReference mReference;
+    @BindView(R.id.enterUserName) Button acceptUserButton;
+    @BindView(R.id.userName) EditText userEditText;
 
     public UserNameFragment() {
         // Required empty public constructor
@@ -68,14 +74,6 @@ public class UserNameFragment extends Fragment {
         super.onAttach(context);
 
         FirebaseService.getFBRefInstance().child("servicePushTestNode").push().setValue("using service");
-        FirebaseService.getFBRefInstance().child("secondPushTest").push().setValue("using second test");
-
-
-//        mReference = FirebaseDatabase
-//                .getInstance()
-//                .getReference()
-//                .child("secondPushTestNode");
-//        mReference.push().setValue("an item");
 
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
@@ -86,10 +84,32 @@ public class UserNameFragment extends Fragment {
     }
 
     @Override
+
+    public void onClick(View view) {
+        if (view == acceptUserButton){
+            String userName = userEditText.getText().toString().trim();
+           if(validate(userName)){
+               //store and pass into next fragment
+
+           }
+        }
+    }
+
+    public Boolean validate (String userName){
+        if (userName.length() > 0){
+            return true;
+        }
+        return false;
+    }
+
+
+    @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
+
+
 
     /**
      * This interface must be implemented by activities that contain this
