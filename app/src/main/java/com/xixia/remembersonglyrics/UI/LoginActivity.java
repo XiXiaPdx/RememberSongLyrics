@@ -15,6 +15,7 @@ public class LoginActivity extends AppCompatActivity implements UserNameFragment
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         fragmentService = new FragmentService(this);
+        testVarArgs(1,2);
 
     }
 
@@ -29,5 +30,11 @@ public class LoginActivity extends AppCompatActivity implements UserNameFragment
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    public void testVarArgs(int... numbers){
+        for (int number: numbers){
+            System.out.println(number);
+        }
     }
 }

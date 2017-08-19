@@ -8,6 +8,13 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 
 public class FirebaseService {
-    private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference ref = database.getReference();
+    private static final FirebaseService firebaseService = new FirebaseService();
+    private static FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private static DatabaseReference ref = database.getReference();
+
+    private FirebaseService(){};
+
+    public static DatabaseReference getFBRefInstance () {
+        return firebaseService.ref;
+    }
 }

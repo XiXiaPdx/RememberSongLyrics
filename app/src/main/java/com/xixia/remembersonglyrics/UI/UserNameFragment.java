@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.xixia.remembersonglyrics.R;
+import com.xixia.remembersonglyrics.Services.FirebaseService;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,7 +24,7 @@ import com.xixia.remembersonglyrics.R;
 public class UserNameFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-    private DatabaseReference mReference;
+//    private DatabaseReference mReference;
 
     public UserNameFragment() {
         // Required empty public constructor
@@ -66,11 +67,15 @@ public class UserNameFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        mReference = FirebaseDatabase
-                .getInstance()
-                .getReference()
-                .child("secondPushTestNode");
-        mReference.push().setValue("an item");
+        FirebaseService.getFBRefInstance().child("servicePushTestNode").push().setValue("using service");
+        FirebaseService.getFBRefInstance().child("secondPushTest").push().setValue("using second test");
+
+
+//        mReference = FirebaseDatabase
+//                .getInstance()
+//                .getReference()
+//                .child("secondPushTestNode");
+//        mReference.push().setValue("an item");
 
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
