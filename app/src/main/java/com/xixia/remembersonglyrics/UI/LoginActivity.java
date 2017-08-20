@@ -1,8 +1,8 @@
 package com.xixia.remembersonglyrics.UI;
 
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.xixia.remembersonglyrics.Constants;
 import com.xixia.remembersonglyrics.R;
