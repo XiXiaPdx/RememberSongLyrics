@@ -14,7 +14,16 @@ public class FirebaseService {
 
     private FirebaseService(){};
 
-    public static DatabaseReference getFBRefInstance () {
-        return firebaseService.ref;
+    public static FirebaseDatabase getFBDatabaseInstance () {
+        return firebaseService.database;
+    }
+
+
+    public static FirebaseDatabase getDatabase() {
+        return database;
+    }
+
+    public static DatabaseReference getRef() {
+        return ref;
     }
 }

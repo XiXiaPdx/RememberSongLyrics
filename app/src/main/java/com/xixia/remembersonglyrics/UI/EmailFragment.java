@@ -1,7 +1,6 @@
 package com.xixia.remembersonglyrics.UI;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,8 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.xixia.remembersonglyrics.Constants;
 import com.xixia.remembersonglyrics.R;
 import com.xixia.remembersonglyrics.Services.FirebaseService;
@@ -26,18 +23,18 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link UserNameFragment.OnFragmentInteractionListener} interface
+ * {@link EmailFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link UserNameFragment#newInstance} factory method to
+ * Use the {@link EmailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UserNameFragment extends Fragment implements View.OnClickListener {
+public class EmailFragment extends Fragment implements View.OnClickListener {
 
     private OnFragmentInteractionListener mListener;
-    @BindView(R.id.acceptUserName) Button acceptUserButton;
-    @BindView(R.id.userName) EditText userEditText;
+    @BindView(R.id.acceptEmailAddress) Button acceptEmailButton;
+    @BindView(R.id.emailAddress) EditText userEditText;
 
-    public UserNameFragment() {
+    public EmailFragment() {
         // Required empty public constructor
     }
 
@@ -45,11 +42,11 @@ public class UserNameFragment extends Fragment implements View.OnClickListener {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment UserNameFragment.
+     * @return A new instance of fragment EmailFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static UserNameFragment newInstance() {
-        UserNameFragment fragment = new UserNameFragment();
+    public static EmailFragment newInstance() {
+        EmailFragment fragment = new EmailFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -64,9 +61,9 @@ public class UserNameFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_username, container, false);
+        View view = inflater.inflate(R.layout.fragment_email, container, false);
         ButterKnife.bind(this, view);
-        acceptUserButton.setOnClickListener(this);
+        acceptEmailButton.setOnClickListener(this);
         return view;
     }
 
@@ -80,7 +77,8 @@ public class UserNameFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        FirebaseService.getFBRefInstance().child("servicePushTestNode").push().setValue("using service");
+
+        FirebaseService.getDatabase().getReference().child("servicePushTestNode").push().setValue("test");
 
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
@@ -93,21 +91,21 @@ public class UserNameFragment extends Fragment implements View.OnClickListener {
     @Override
 
     public void onClick(View view) {
-        if (view == acceptUserButton){
-            String userName = userEditText.getText().toString().trim();
-           if(validate(userName)){
+        if (view == acceptEmailButton){
+            String emailAddress = userEditText.getText().toString().trim();
+           if(validate(emailAddress)){
                //store and pass into next fragment
                FragmentService fragmentService = new FragmentService(getActivity());
-               fragmentService.loadFragment(UserNameFragment.newInstance(), Constants.LOGIN_CONTAINER);
+               fragmentService.loadFragment(EmailFragment.newInstance(), Constants.LOGIN_CONTAINER);
            }
         }
     }
 
-    public Boolean validate (String userName){
-        if (userName.length() > 0){
+    public Boolean validate (String emailAddress){
+        if (emailAddress.length() > 0 && emailAddress.contains("@")){
             return true;
         } else {
-            Toast.makeText(getActivity(), "Not Valid", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), getResources().getString(R.string.invalid_email), Toast.LENGTH_SHORT).show();
             return false;
         }
     }

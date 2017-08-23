@@ -8,7 +8,7 @@ import com.xixia.remembersonglyrics.Constants;
 import com.xixia.remembersonglyrics.R;
 import com.xixia.remembersonglyrics.Services.FragmentService;
 
-public class LoginActivity extends AppCompatActivity implements UserNameFragment.OnFragmentInteractionListener {
+public class LoginActivity extends AppCompatActivity implements EmailFragment.OnFragmentInteractionListener {
     private FragmentService fragmentService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity implements UserNameFragment
         super.onResume();
 //        MMApiCalls apiCallService = new MMApiCalls(this);
 //        apiCallService.searchForSong("Million Reasons Lady Gaga");
-        fragmentService.loadFragment(UserNameFragment.newInstance(), Constants.LOGIN_CONTAINER);
+        fragmentService.loadFragment(EmailFragment.newInstance(), Constants.LOGIN_CONTAINER);
     }
 
     @Override
